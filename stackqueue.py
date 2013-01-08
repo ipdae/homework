@@ -61,7 +61,7 @@ def delete_queue():
 
 def show_queue():
 	print 'Show Queue'
-	print queue
+	print Queue
 	main()
 	
 def wrong():
