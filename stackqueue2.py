@@ -1,38 +1,233 @@
+#Stack is LIFO(Last In First Out)
+#Queue is FIFO(First In First Out)
 import sys
 
+stack = [] #Stack create
+queue = [] #Queue create
+
+def main():
+	print '1. Insert Stack'
+	print '2. Delete Stack'
+	print '3. Show Stack'
+	print '4. Insert Queue'
+	print '5. Delete Queue'
+	print '6. Show Queue'
+
+	num = int(raw_input('choose number :'))
+	
+	if num == 1:
+		insert_stack()
+	elif num == 2:
+		delete_stack()
+	elif num == 3:
+		show_stack()
+	elif num == 4:
+		insert_queue()
+	elif num == 5:
+		delete_queue()
+	elif num == 6:
+		show_queue()
+	else:
+		wrong()
 		
-def stack():
-	stack = [] #Stack create
-	a = 0 
-	print 'Stack PUSH'
-	while a < 10:
-		a = a + 1	
-		stack.append(a) #Stack PUSH
+def insert_stack():
+	print 'Insert Stack'
+	a = raw_input('>')
+	stack.append(a) #Stack PUSH
 	print stack
 	
-	print 'Stack POP'
-	while stack:
-		print stack 
-		stack.pop() #Stack POP
+	print 'Choose number'
+	print '1. Insert Stack'
+	print '2. Delete Stack'
+	print '3. Show Stack'
+	print '4. Insert Queue'
+	print '5. Delete Queue'
+	print '6. Show Queue'
+
+	num = int(raw_input('choose number :'))
 	
-		
-def queue():
-	queue = [] #Queue create
-	a = 0
-	print 'Queue PUT'
-	while a < 10:
-		a = a + 1
-		queue.append(a) #Queue PUT
+	if num == 1:
+		insert_stack()
+	elif num == 2:
+		delete_stack()
+	elif num == 3:
+		show_stack()
+	elif num == 4:
+		insert_queue()
+	elif num == 5:
+		delete_queue()
+	elif num == 6:
+		show_queue()
+	else:
+		wrong()
+	
+def delete_stack():
+	stack.pop() #Stack POP
+	print stack
+	
+	print '1. Insert Stack'
+	print '2. Delete Stack'
+	print '3. Show Stack'
+	print '4. Insert Queue'
+	print '5. Delete Queue'
+	print '6. Show Queue'
+
+	num = int(raw_input('choose number :'))
+	
+	if num == 1:
+		insert_stack()
+	elif num == 2:
+		delete_stack()
+	elif num == 3:
+		show_stack()
+	elif num == 4:
+		insert_queue()
+	elif num == 5:
+		delete_queue()
+	elif num == 6:
+		show_queue()
+	else:
+		wrong()
+	
+def show_stack():
+	print 'Show Stack'
+	print stack
+	
+	print '1. Insert Stack'
+	print '2. Delete Stack'
+	print '3. Show Stack'
+	print '4. Insert Queue'
+	print '5. Delete Queue'
+	print '6. Show Queue'
+
+	num = int(raw_input('choose number :'))
+	
+	if num == 1:
+		insert_stack()
+	elif num == 2:
+		delete_stack()
+	elif num == 3:
+		show_stack()
+	elif num == 4:
+		insert_queue()
+	elif num == 5:
+		delete_queue()
+	elif num == 6:
+		show_queue()
+	else:
+		wrong()
+	
+def insert_queue():
+	print 'Insert Queue'
+	a = raw_input('>')
+	queue.append(a) #Queue PUT
 	print queue
 	
-	print 'Queue GET'
-	while queue:
-		print queue
-		queue.pop(0) #Queue GET
-	
-	
+	print '1. Insert Stack'
+	print '2. Delete Stack'
+	print '3. Show Stack'
+	print '4. Insert Queue'
+	print '5. Delete Queue'
+	print '6. Show Queue'
 
+	num = int(raw_input('choose number :'))
 	
-stack()
-queue()
-sys.exit()
+	if num == 1:
+		insert_stack()
+	elif num == 2:
+		delete_stack()
+	elif num == 3:
+		show_stack()
+	elif num == 4:
+		insert_queue()
+	elif num == 5:
+		delete_queue()
+	elif num == 6:
+		show_queue()
+	else:
+		wrong()
+		
+def delete_queue():
+	queue.pop(0) #Queue GET
+	print queue
+	
+	print '1. Insert Stack'
+	print '2. Delete Stack'
+	print '3. Show Stack'
+	print '4. Insert Queue'
+	print '5. Delete Queue'
+	print '6. Show Queue'
+
+	num = int(raw_input('choose number :'))
+	
+	if num == 1:
+		insert_stack()
+	elif num == 2:
+		delete_stack()
+	elif num == 3:
+		show_stack()
+	elif num == 4:
+		insert_queue()
+	elif num == 5:
+		delete_queue()
+	elif num == 6:
+		show_queue()
+	else:
+		wrong()
+
+def show_queue():
+	print 'Show Queue'
+	print queue
+	
+	print '1. Insert Stack'
+	print '2. Delete Stack'
+	print '3. Show Stack'
+	print '4. Insert Queue'
+	print '5. Delete Queue'
+	print '6. Show Queue'
+
+	num = int(raw_input('choose number :'))
+	
+	if num == 1:
+		insert_stack()
+	elif num == 2:
+		delete_stack()
+	elif num == 3:
+		show_stack()
+	elif num == 4:
+		insert_queue()
+	elif num == 5:
+		delete_queue()
+	elif num == 6:
+		show_queue()
+	else:
+		wrong()
+	
+def wrong():
+	print 'sorry wrong number'
+
+	print '1. Insert Stack'
+	print '2. Delete Stack'
+	print '3. Show Stack'
+	print '4. Insert Queue'
+	print '5. Delete Queue'
+	print '6. Show Queue'
+
+	num = int(raw_input('choose number :'))
+	
+	if num == 1:
+		insert_stack()
+	elif num == 2:
+		delete_stack()
+	elif num == 3:
+		show_stack()
+	elif num == 4:
+		insert_queue()
+	elif num == 5:
+		delete_queue()
+	elif num == 6:
+		show_queue()
+	else:
+		wrong()
+	
+main()
