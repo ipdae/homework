@@ -13,7 +13,8 @@ def main():
 	print '4. Insert Queue'
 	print '5. Delete Queue'
 	print '6. Show Queue'
-
+	print '7. Exit'
+	
 	num = int(raw_input('choose number :'))
 	
 	if num == 1:
@@ -28,6 +29,8 @@ def main():
 		delete_queue()
 	elif num == 6:
 		show_queue()
+	elif num == 7:
+		sys.exit()
 	else:
 		wrong()
 		
@@ -37,7 +40,7 @@ def insert_stack():
 	stack.append(a) #Stack PUSH
 	print stack
 	
-	print 'Choose number'
+	print '\nChoose number'
 	print '1. Insert Stack'
 	print '2. Delete Stack'
 	print '3. Show Stack'
@@ -66,14 +69,15 @@ def delete_stack():
 	stack.pop() #Stack POP
 	print stack
 	
-	print 'Choose number'
+	print '\nChoose number'
 	print '1. Insert Stack'
 	print '2. Delete Stack'
 	print '3. Show Stack'
 	print '4. Insert Queue'
 	print '5. Delete Queue'
 	print '6. Show Queue'
-
+	print '7. Exit'
+	
 	num = int(raw_input('choose number :'))
 	
 	if num == 1:
@@ -88,6 +92,8 @@ def delete_stack():
 		delete_queue()
 	elif num == 6:
 		show_queue()
+	elif num == 7:
+		sys.exit()
 	else:
 		wrong()
 	
@@ -95,14 +101,15 @@ def show_stack():
 	print 'Show Stack'
 	print stack
 	
-	print 'Choose number'
+	print '\nChoose number'
 	print '1. Insert Stack'
 	print '2. Delete Stack'
 	print '3. Show Stack'
 	print '4. Insert Queue'
 	print '5. Delete Queue'
 	print '6. Show Queue'
-
+	print '7. Exit'
+	
 	num = int(raw_input('choose number :'))
 	
 	if num == 1:
@@ -117,6 +124,8 @@ def show_stack():
 		delete_queue()
 	elif num == 6:
 		show_queue()
+	elif num == 7:
+		sys.exit()
 	else:
 		wrong()
 	
@@ -126,14 +135,15 @@ def insert_queue():
 	queue.append(a) #Queue PUT
 	print queue
 	
-	print 'Choose number'
+	print '\nChoose number'
 	print '1. Insert Stack'
 	print '2. Delete Stack'
 	print '3. Show Stack'
 	print '4. Insert Queue'
 	print '5. Delete Queue'
 	print '6. Show Queue'
-
+	print '7. Exit'
+	
 	num = int(raw_input('choose number :'))
 	
 	if num == 1:
@@ -148,6 +158,8 @@ def insert_queue():
 		delete_queue()
 	elif num == 6:
 		show_queue()
+	elif num == 7:
+		sys.exit()
 	else:
 		wrong()
 		
@@ -155,14 +167,15 @@ def delete_queue():
 	queue.pop(0) #Queue GET
 	print queue
 	
-	print 'Choose number'
+	print '\nChoose number'
 	print '1. Insert Stack'
 	print '2. Delete Stack'
 	print '3. Show Stack'
 	print '4. Insert Queue'
 	print '5. Delete Queue'
 	print '6. Show Queue'
-
+	print '7. Exit'
+	
 	num = int(raw_input('choose number :'))
 	
 	if num == 1:
@@ -177,6 +190,8 @@ def delete_queue():
 		delete_queue()
 	elif num == 6:
 		show_queue()
+	elif num == 7:
+		sys.exit()
 	else:
 		wrong()
 
@@ -184,14 +199,15 @@ def show_queue():
 	print 'Show Queue'
 	print queue
 	
-	print 'Choose number'
+	print '\nChoose number'
 	print '1. Insert Stack'
 	print '2. Delete Stack'
 	print '3. Show Stack'
 	print '4. Insert Queue'
 	print '5. Delete Queue'
 	print '6. Show Queue'
-
+	print '7. Exit'
+	
 	num = int(raw_input('choose number :'))
 	
 	if num == 1:
@@ -206,20 +222,23 @@ def show_queue():
 		delete_queue()
 	elif num == 6:
 		show_queue()
+	elif num == 7:
+		sys.exit()
 	else:
 		wrong()
 	
 def wrong():
 	print 'sorry wrong number'
 	
-	print 'Choose number'
+	print '\nChoose number'
 	print '1. Insert Stack'
 	print '2. Delete Stack'
 	print '3. Show Stack'
 	print '4. Insert Queue'
 	print '5. Delete Queue'
 	print '6. Show Queue'
-
+	print '7. Exit'
+	
 	num = int(raw_input('choose number :'))
 	
 	if num == 1:
@@ -234,6 +253,8 @@ def wrong():
 		delete_queue()
 	elif num == 6:
 		show_queue()
+	elif num == 7:
+		sys.exit()
 	else:
 		wrong()
 	
