@@ -6,6 +6,7 @@ stack = [] #Stack create
 queue = [] #Queue create
 
 def main():
+	print 'Choose number'
 	print '1. Insert Stack'
 	print '2. Delete Stack'
 	print '3. Show Stack'
@@ -65,6 +66,7 @@ def delete_stack():
 	stack.pop() #Stack POP
 	print stack
 	
+	print 'Choose number'
 	print '1. Insert Stack'
 	print '2. Delete Stack'
 	print '3. Show Stack'
@@ -93,6 +95,7 @@ def show_stack():
 	print 'Show Stack'
 	print stack
 	
+	print 'Choose number'
 	print '1. Insert Stack'
 	print '2. Delete Stack'
 	print '3. Show Stack'
@@ -123,6 +126,7 @@ def insert_queue():
 	queue.append(a) #Queue PUT
 	print queue
 	
+	print 'Choose number'
 	print '1. Insert Stack'
 	print '2. Delete Stack'
 	print '3. Show Stack'
@@ -151,6 +155,7 @@ def delete_queue():
 	queue.pop(0) #Queue GET
 	print queue
 	
+	print 'Choose number'
 	print '1. Insert Stack'
 	print '2. Delete Stack'
 	print '3. Show Stack'
@@ -179,6 +184,7 @@ def show_queue():
 	print 'Show Queue'
 	print queue
 	
+	print 'Choose number'
 	print '1. Insert Stack'
 	print '2. Delete Stack'
 	print '3. Show Stack'
@@ -205,7 +211,8 @@ def show_queue():
 	
 def wrong():
 	print 'sorry wrong number'
-
+	
+	print 'Choose number'
 	print '1. Insert Stack'
 	print '2. Delete Stack'
 	print '3. Show Stack'
