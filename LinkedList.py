@@ -1,11 +1,18 @@
+class Node:
+	def __init__(self,data,next = None):
+		self.data = data
+		self.next = next
+
 class LinkedList:
 	def __init__(self):
 		self.head = None		
+
 	def print_list(self):
 		current = self.head
 		while current:
 				print current.data
 				current = current.next
+
 	def len_list(self):
 		current = self.head
 		s = 0
@@ -13,6 +20,7 @@ class LinkedList:
 			s = s + 1
 			current = current.next
 		return s
+
 	def __repr__(self):
 		current = self.head
 		while current:
@@ -21,6 +29,7 @@ class LinkedList:
 				current = current.next
 				s = s + str(' ') + str(current.data)
 			return str(s)
+
 	def __getitem__(self, key):
 		s = 0
 		current = self.head
@@ -30,6 +39,7 @@ class LinkedList:
 			else:
 				s = s + 1
 				current = current.next
+
 	def __setitem__(self, key, value):
 		s = 0
 		current = self.head
@@ -40,6 +50,7 @@ class LinkedList:
 			else:
 				s = s + 1
 				current = current.next
+
 	def __delitem__(self, key):
 		s = 0
 		current = self.head
@@ -57,6 +68,7 @@ class LinkedList:
 			else:
 				s = s + 1
 				current = current.next
+
 	def range_list(self,n):
 		s = 0
 		current = self.head
@@ -65,6 +77,7 @@ class LinkedList:
 				s = s + 1
 			current = current.next
 		return s
+
 	def append_first(self,s):
 		n = Node(s)
 		if self.head == None:
@@ -72,6 +85,7 @@ class LinkedList:
 		else:
 			n.next = self.head
 			self.head = n		
+
 	def append_last(self,s):
 		n = Node(s)
 		if self.head == None:
@@ -84,10 +98,12 @@ class LinkedList:
 					break
 				else:
 					current = current.next
+
 	def pop_first(self):
 		n = self.head
 		self.head = self.head.next
 		return n.data
+
 	def pop_last(self):
 		current = self.head
 		while current:
@@ -101,3 +117,4 @@ class LinkedList:
 				return n.data
 			else:
 				current = current.next
+
