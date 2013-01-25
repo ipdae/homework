@@ -21,7 +21,7 @@ class LinkedList:
 			while current:
 				s = str(current.data)
 				while current.next != None:
-					current = current.next
+					current = current.next 
 					s = s + str(' ') + str(current.data)
 				return str(s)
 	def __getitem__(self, key):
@@ -112,3 +112,14 @@ class LinkedList:
 					return False
 			elif current.data == item:
 				return True
+	def __reversed__(self):
+		current = self.head
+		if self.head == None:
+			return str(None)
+		else:
+			while current:
+				s = str(current.data)
+				while current.next != None:
+					current = current.next 
+					s = str(current.data) + str(' ') + s
+				return str(s)
