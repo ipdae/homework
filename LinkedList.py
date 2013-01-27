@@ -113,13 +113,10 @@ class LinkedList:
 			elif current.data == item:
 				return True
 	def __reversed__(self):
-		current = self.head
-		if self.head == None:
-			return str(None)
-		else:
-			while current:
-				s = str(current.data)
-				while current.next != None:
-					current = current.next 
-					s = str(current.data) + str(' ') + s
-				return str(s)
+		n = self.len_list()
+		s = LinkedList()
+		s.append_last(n)
+		while n > 1:
+			n = n - 1
+			s.append_last(n)
+		return s 
