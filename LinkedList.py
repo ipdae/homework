@@ -1,16 +1,17 @@
 class LinkedList:
 	def __init__(self):
-		self.head = None		
+		self.head = None
+		self.n = -1
 	def print_list(self):
 		current = self.head
 		while current:
-				print current.data
-				current = current.next
+			print current.data
+			current = current.next
 	def len_list(self):
 		current = self.head
 		s = 0
 		while current:
-			s = s + 1
+			s += 1
 			current = current.next
 		return s
 	def __repr__(self):
@@ -31,7 +32,7 @@ class LinkedList:
 			if key == s:
 				return current.data
 			else:
-				s = s + 1
+				s += 1
 				current = current.next
 	def __setitem__(self, key, value):
 		s = 0
@@ -41,7 +42,7 @@ class LinkedList:
 				current.data = value
 				return value
 			else:
-				s = s + 1
+				s += 1
 				current = current.next
 	def __delitem__(self, key):
 		s = 0
@@ -57,14 +58,14 @@ class LinkedList:
 				second = None
 				break
 			else:
-				s = s + 1
+				s += 1
 				current = current.next
 	def range_list(self,n):
 		s = 0
 		current = self.head
 		while current:
 			if current.data == n:
-				s = s + 1
+				s += 1
 			current = current.next
 		return s
 	def append_first(self,s):
@@ -119,4 +120,12 @@ class LinkedList:
 			s.append_first(current.data)
 			current = current.next
 		return s
-
+	def __iter__(self):
+		return self
+	def next(self):
+		while self.n < self.len_list():
+			self.n += 1
+			return self[self.n]
+		else:
+			raise StopIteration
+	
