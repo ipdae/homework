@@ -1,49 +1,42 @@
 class LinkedList:
 	def __init__(self):
 		self.head = None
-		self.n = -1
+		self.current = None
 	def print_list(self):
 		current = self.head
 		while current:
 			print current.data
 			current = current.next
-	def len_list(self):
-		current = self.head
-		s = 0
-		while current:
+	def __len__(self):
+		s = 0 
+		for i in self:
 			s += 1
-			current = current.next
 		return s
 	def __repr__(self):
 		current = self.head
 		if self.head == None:
 			return str(None)
 		else:
-			while current:
-				s = str(current.data)
-				while current.next != None:
-					current = current.next 
-					s = s + str(' ') + str(current.data)
-				return str(s)
+			s = str(current.data)
+			while current.next != None:
+				current = current.next 
+				s = s + str(' ') + str(current.data)
+			return s
 	def __getitem__(self, key):
 		s = 0
-		current = self.head
-		while current:
-			if key == s:
-				return current.data
+		for i in self:
+			if s == key:
+				return i
 			else:
 				s += 1
-				current = current.next
 	def __setitem__(self, key, value):
 		s = 0
-		current = self.head
-		while current:
-			if key == s:
-				current.data = value
-				return value
+		for i in self.nodeiter():
+			if s == key:
+				i.data = value
+				return 
 			else:
 				s += 1
-				current = current.next
 	def __delitem__(self, key):
 		s = 0
 		current = self.head
@@ -62,11 +55,9 @@ class LinkedList:
 				current = current.next
 	def range_list(self,n):
 		s = 0
-		current = self.head
-		while current:
-			if current.data == n:
+		for i in self:
+			if i == n:
 				s += 1
-			current = current.next
 		return s
 	def append_first(self,s):
 		n = Node(s)
@@ -105,27 +96,38 @@ class LinkedList:
 			else:
 				current = current.next
 	def __contains__(self, item):
-		current = self.head
-		while current:
-			if current.data != item:
-				current = current.next
-				if current == None:
-					return False
-			elif current.data == item:
+		for i in self:
+			if i == item:
 				return True
+		return False
 	def __reversed__(self):
-		current = self.head
 		s = LinkedList()
-		while current:
-			s.append_first(current.data)
-			current = current.next
+		for i in self:
+			s.append_first(i)
 		return s
 	def __iter__(self):
+		return DataIter(self.head)
+	def nodeiter(self):
+		return NodeIter(self.head)
+
+class Iter(object):
+	def __init__(self,head):
+		self.current = head
+	def __iter__(self):
 		return self
+		
+class DataIter(Iter):
 	def next(self):
-		while self.n < self.len_list():
-			self.n += 1
-			return self[self.n]
-		else:
+		s = self.current
+		if s == None:
 			raise StopIteration
-	
+		self.current = self.current.next
+		return s.data
+
+class NodeIter(Iter):
+	def next(self):
+		s = self.current
+		if s == None:
+			raise StopIteration
+		self.current = self.current.next
+		return s
