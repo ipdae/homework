@@ -43,7 +43,7 @@ class LinkedList:
 				return 
 			else:
 				s += 1
-	def __delitem__(self, key): #used nodeiter().
+	def __delitem__(self, key): #used nodeiter()
 		s = 0
 		for i in self.nodeiter():
 			if s == key:
@@ -79,15 +79,10 @@ class LinkedList:
 			self.head = n	
 			self.tail = n	
 		else:
-			current = self.head
-			while current:
-				if current.next == None:
-					current.next = n
-					self.tail = n
-					n.prev = current
-					break
-				else:
-					current = current.next
+			current = self.tail
+			self.tail.next = n
+			n.prev = current
+			self.tail = n
 	def pop_first(self): #add self.tail, self.prev
 		n = self.head
 		self.head = self.head.next
