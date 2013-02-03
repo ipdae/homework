@@ -52,8 +52,9 @@ class LinkedList:
 			elif s + 1 == key:
 				a = self.head
 				b = self.head.next
-				a.next = b.next
-				b.prev = a
+				c = b.next
+				a.next = c
+				c.prev = a
 				return
 			else:
 				s += 1 
