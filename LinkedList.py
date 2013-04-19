@@ -1,7 +1,13 @@
+class Node:
+	def __init__(self,data,prev=None,next=None):
+		self.data = data
+		self.prev = prev
+		self.next = next
 class LinkedList:
 	def __init__(self):
 		self.head = None
 		self.current = None
+		self.tail = None
 	def print_list(self):
 		current = self.head
 		while current:
@@ -37,64 +43,60 @@ class LinkedList:
 				return 
 			else:
 				s += 1
-	def __delitem__(self, key):
+	def __delitem__(self, key): #used nodeiter()
 		s = 0
-		current = self.head
-		while current:
-			if key == s:
+		for i in self.nodeiter():
+			if s == key:
 				self.head = self.head.next
-				break
-			elif key == s + 1:
-				first = current
-				second = current.next
-				first.next = second.next
-				second = None
-				break
+				return
+			elif s + 1 == key:
+				a = self.head
+				b = self.head.next
+				c = b.next
+				a.next = c
+				c.prev = a
+				return
 			else:
-				s += 1
-				current = current.next
+				s += 1 
 	def range_list(self,n):
 		s = 0
 		for i in self:
 			if i == n:
 				s += 1
 		return s
-	def append_first(self,s):
+	def append_first(self,s): #add self.tail, self.prev
 		n = Node(s)
 		if self.head == None:
 			self.head = n
+			self.tail = n
 		else:
 			n.next = self.head
+			self.tail = self.head
+			self.head.prev = n
 			self.head = n		
-	def append_last(self,s):
+	def append_last(self,s): #add self.tail, self.prev
 		n = Node(s)
 		if self.head == None:
-			self.head = n		
+			self.head = n	
+			self.tail = n	
 		else:
-			current = self.head
-			while current:
-				if current.next == None:
-					current.next = n
-					break
-				else:
-					current = current.next
-	def pop_first(self):
+			current = self.tail
+			self.tail.next = n
+			n.prev = current
+			self.tail = n
+	def pop_first(self): #add self.tail, self.prev
 		n = self.head
 		self.head = self.head.next
 		return n.data
-	def pop_last(self):
-		current = self.head
-		while current:
-			if current.next == None:
-				n = self.head
-				self.head = None
-				return n.data
-			elif current.next.next == None:
-				n = current.next
-				current.next = None
-				return n.data
-			else:
-				current = current.next
+	def pop_last(self): #add self.tail, self.prev
+		n = self.tail
+		self.tail = self.tail.prev
+		if self.tail == None:
+			self.head = None
+			return n.data
+		else:
+			self.tail.next = None
+			return n.data
 	def __contains__(self, item):
 		for i in self:
 			if i == item:
@@ -106,20 +108,10 @@ class LinkedList:
 			s.append_first(i)
 		return s
 	def __iter__(self):
-		self.current = self.head
-		return self
-	def next(self):
-		s = self.current
-		if s == None:
-			raise StopIteration
-		self.current = self.current.next
-		return s.data
+		return DataIter(self.head)
 	def nodeiter(self):
-		return NodeIter(self.head)
-		
-class NodeIter:
-
-	
+		return Iter(self.head)
+class Iter(object):
 	def __init__(self,head):
 		self.current = head
 	def __iter__(self):
@@ -130,20 +122,6 @@ class NodeIter:
 			raise StopIteration
 		self.current = self.current.next
 		return s
-
-
-class Sellable(object):
-	def sell(self):
-		print "{0} is sold.".format(self.get_name())
-
-class Boonger(Sellable):
-	def __init__(self):
-		self.name = "Boonger"
-	def xx(self):
-		return 'pot'
-
-class Inger(Sellable):
-	def __init__(self):
-		self.name = "Inger"
-	def xx(self):
-		return 'vanilla'
+class DataIter(Iter):
+	def next(self):
+		return super(DataIter,self).next().data
