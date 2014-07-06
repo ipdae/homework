@@ -3,12 +3,20 @@
 
 (iswitchb-mode t)
 
-(require'hangul)
-(set-input-method "korean-hangul1390") ;; for 3 beolsik 390...
-;; (set-unput-method "korean-hangul13f") ;; if you want 3 beolsik final...
-(setq load-path (cons (expand-file-name "~/.emacs.d/") load-path))
-(set-language-environment "UTF-8")
-(set-terminal-coding-system 'utf-8)
-(setq default-process-coding-system '(utf-8 . utf-8))
-(prefer-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
+
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+
+(setq make-backufp-files nil)
+(setq auto-save-default nil)
+
+(require 'package)
+(add-to-list 'package-archives '("marmalad". "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa". "http://melpa.milkbox.net/packages/"))
+(package-initialize)
+
+(require 'flymake-python-pyflakes)
+(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+(setq flymake-python-pyflakes-executable "flake8")
+(setq flymake-python-pyflakes-extra-arugments '("--ignore=W806"))
