@@ -1,5 +1,6 @@
 (global-linum-mode 1)
 (setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
 
 (iswitchb-mode t)
 
@@ -19,4 +20,53 @@
 (require 'flymake-python-pyflakes)
 (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 (setq flymake-python-pyflakes-executable "flake8")
+(setq flymake-cursor-mode 't)
+(add-hook 'flymake-mode-hook
+		  '(lambda ()
+			 (local-set-key (kbd "C-c n")
+							'flymake-goto-next-error)))
+(add-hook 'flymake-mode-hook
+		  '(lambda ()
+			 (local-set-key (kbd "C-c p")
+							'flymake-goto-prev-error)))
 (setq flymake-python-pyflakes-extra-arugments '("--ignore=W806"))
+
+(setq inhibit-startup-message t)
+
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-code-indent-offset 4)
+
+(setq web-mode-indent-style 1)
+(setq web-mode-comment-style 2)
+
+(setq web-mode-engines-alist
+      '(("jinja" . "\\.html\\'")))
+
+(require 'pymacs)
+(pymacs-load "ropemacs" "rope-")
+
+(setq markdown-command "pandoc")
+
+(setq venv-location "~/.venvs")
+
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:setup-keys t)
+(setq jedi:complete-on-dot t)
+
+(load-theme 'solarized-light t)
+
+(set-fontset-font "fontset-default" '(#x1100 . #xffdc) '("나눔바른고딕" . "iso10646-1"))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "나눔바른고딕" :foundry "unknown" :slant normal :weight normal :height 128 :width normal)))))
